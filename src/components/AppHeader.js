@@ -1,21 +1,18 @@
 import React from "react";
 
-export default class Add extends React.Component {
-
+export default class AppHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
         newTitleValue: ""
     }
   }
-
   onKeyPress = (e) => {
     if(e.key === "Enter") {
         this.props.createTodo(this.state.newTitleValue);
         this.setState({newTitleValue: ""});
     }
   }
-
   render() {
     return (
         <header className="header">
@@ -31,5 +28,4 @@ export default class Add extends React.Component {
         </header>
     );
   }
-
 }

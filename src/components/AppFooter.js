@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Filters extends React.Component {
+export default class AppFooter extends React.Component {
   render() {
     return (
       <footer className="footer" style={{display: 'block'}}>
@@ -15,7 +15,7 @@ export default class Filters extends React.Component {
             <a
               href="#all"
               className={ this.props.show==="all" ? "selected" : ""  }
-              onClick={ (e) => this.props.showTodo("all", e) }
+              onClick={ (e) => this.props.changeTodoFilter("all", e) }
             >
               All
             </a>
@@ -24,7 +24,7 @@ export default class Filters extends React.Component {
             <a
               href="#selected"
               className={ this.props.show==="active" ? "selected" : ""  }
-              onClick={ (e) => this.props.showTodo("active", e) }
+              onClick={ (e) => this.props.changeTodoFilter("active", e) }
             >
               Active
             </a>
@@ -33,7 +33,7 @@ export default class Filters extends React.Component {
             <a
               href="#completed"
               className={ this.props.show==="completed" ? "selected" : ""  }
-              onClick={ (e) => this.props.showTodo("completed", e) }
+              onClick={ (e) => this.props.changeTodoFilter("completed", e) }
             >
               Completed
             </a>

@@ -1,12 +1,11 @@
 import './App.css';
 import React from "react";
-import Add from "./components/Add.js";
-import List from "./components/List.js";
-import Filters from "./components/Filters.js";
+import AppHeader from "./components/AppHeader.js";
+import AppTodoList from "./components/AppTodoList.js";
+import AppFooter from "./components/AppFooter.js";
 
 
 export default class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +13,6 @@ export default class App extends React.Component {
         show: 'all',
     };
   }
-
   createTodo = (title) => {
     if (title.trim()) this.setState({
       todos: [
@@ -23,7 +21,6 @@ export default class App extends React.Component {
       ]
     });
   }
-
   toggleTodo = (id) => {
     this.setState({
       todos: this.state.todos.map(
@@ -35,21 +32,18 @@ export default class App extends React.Component {
       }
     );
   }
-
   remooveTodo = (id) => {
     this.setState({
       todos: this.state.todos.filter ( (x) => x.id !== id )
       }
     );
   }
-
   clearCompletedTodo = () => {
     this.setState({
       todos: this.state.todos.filter ( (x) => !x.completed )
       }
     );
   }
-
   makeAllTodo = (m) => {
     this.setState({
       todos: this.state.todos.map(
@@ -58,8 +52,7 @@ export default class App extends React.Component {
       }
     );
   }
-
-  editTodo = (id, newval) => {
+  editTodoTitle = (id, newval) => {
     this.setState({
       todos: this.state.todos.map(
         item =>
@@ -70,36 +63,33 @@ export default class App extends React.Component {
       }
     );
   }
-
-  showTodo = (s, e) => {
+  changeTodoFilter = (s, e) => {
     e.preventDefault();
     this.setState({ show: s });
   }
-
   render() {
     return (
       <section className="todoapp">
-        <Add
+        <AppHeader
           createTodo={this.createTodo}
         />
         <section className="main" style={{display: 'block'}} >
-          <List
+          <AppTodoList
             show={ this.state.show }
             todos={ this.state.todos }
             toggleTodo={ this.toggleTodo }
             makeAllTodo={this.makeAllTodo}
             remooveTodo={ this.remooveTodo }
-            editTodo={ this.editTodo }
+            editTodoTitle={ this.editTodoTitle }
           />
         </section>
-        <Filters
+        <AppFooter
           todos={ this.state.todos }
           show={ this.state.show }
-          showTodo={ this.showTodo }
+          changeTodoFilter={ this.changeTodoFilter }
           clearCompletedTodo={ this.clearCompletedTodo }
         />
       </section>
     );
   }
-
 }

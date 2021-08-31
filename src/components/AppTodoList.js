@@ -24,7 +24,7 @@ export default class List extends React.Component {
                 key={ todo.id }
                 todo={ todo }
                 toggleTodo = { this.props.toggleTodo }
-                editTodo = { this.props.editTodo }
+                editTodoTitle = { this.props.editTodoTitle }
                 remooveTodo = { this.props.remooveTodo }
               />
             )

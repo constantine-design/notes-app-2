@@ -1,14 +1,12 @@
 import React from "react";
 
 export default class Todo extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       titleValue: this.props.todo.title
     }
   }
-
   render () {
     return (
       <li
@@ -26,12 +24,11 @@ export default class Todo extends React.Component {
             type="text"
             value={ this.state.titleValue }
             onChange={ (e) => this.setState({titleValue: e.target.value}) }
-            onBlur={ () => this.props.editTodo(this.props.todo.id, this.state.titleValue) }
+            onBlur={ () => this.props.editTodoTitle(this.props.todo.id, this.state.titleValue) }
           />
           <button className="destroy" onClick={ (e) => this.props.remooveTodo(this.props.todo.id) } />
         </div>
       </li>
     );
   }
-
 }
