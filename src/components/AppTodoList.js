@@ -14,7 +14,7 @@ export default class List extends React.Component {
           className="toggle-all"
           type="checkbox"
           checked={ allTodosTrue }
-          onClick={ (e) => this.props.makeAllTodo(!allTodosTrue) }
+          onClick={ (e) => this.props.makeDoneAllTodo(!allTodosTrue) }
           onChange={ () => {} }
         />
         <label htmlFor="toggle-all">Mark all as complete</label>

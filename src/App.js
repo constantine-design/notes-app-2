@@ -44,7 +44,7 @@ export default class App extends React.Component {
       }
     );
   }
-  makeAllTodo = (m) => {
+  makeDoneAllTodo = (m) => {
     this.setState({
       todos: this.state.todos.map(
           item => ({ ...item, completed: m })
@@ -78,7 +78,7 @@ export default class App extends React.Component {
             show={ this.state.show }
             todos={ this.state.todos }
             toggleTodo={ this.toggleTodo }
-            makeAllTodo={this.makeAllTodo}
+            makeDoneAllTodo={this.makeDoneAllTodo}
             remooveTodo={ this.remooveTodo }
             editTodoTitle={ this.editTodoTitle }
           />
